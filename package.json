@@ -16,7 +16,8 @@
     "css:prefix": "postcss --use autoprefixer --autoprefixer.browsers '> 5%' -o dev/css/index.css dev/css/$npm_package_config_css_fileName.css",
     "css:comb": "csscomb dev/css/$npm_package_config_css_fileName.css",
     "css:copy": "copyfiles -f dev/css/$npm_package_config_css_fileName.css public/css/",
-    "css:min": "csso -i public/css/$npm_package_config_css_fileName.css -o public/css/app-$npm_package_config_versions_css.css",
+    "css:min": "csso -i public/css/$npm_package_config_css_fileName.css -o public/css/app-$npm_package_config_versions_css.css --stat",
+    "css:clean": "rm -rf public/css/$npm_package_config_css_fileName.css",
     "css:build": "bin/build-css.sh"
   },
   "license": "MIT",
