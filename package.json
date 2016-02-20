@@ -2,19 +2,31 @@
   "name": "tasks",
   "version": "1.0.0",
   "description": "tasks",
+  "config": {
+    "versions": {
+      "css": "1.0.0"
+    },
+    "css": {
+      "fileName": "index"
+    }
+  },
   "scripts": {
     "start": "node server/index.js",
-    "css:sass": "node-sass src/css/index.scss dev/css/index.css",
-    "css:prefix": "postcss --use autoprefixer --autoprefixer.browsers '> 5%' -o dev/css/index.css dev/css/index.css",
-    "css:comb": "csscomb dev/css/index.css",
-    "css:min": "csso dev/css/index.css public/css/index.css"
+    "css:sass": "node-sass src/css/index.scss dev/css/$npm_package_config_css_fileName.css",
+    "css:prefix": "postcss --use autoprefixer --autoprefixer.browsers '> 5%' -o dev/css/index.css dev/css/$npm_package_config_css_fileName.css",
+    "css:comb": "csscomb dev/css/$npm_package_config_css_fileName.css",
+    "css:copy": "copyfiles -f dev/css/$npm_package_config_css_fileName.css public/css/",
+    "css:min": "csso -i public/css/$npm_package_config_css_fileName.css -o public/css/app-$npm_package_config_versions_css.css",
+    "css:build": "bin/build-css.sh"
   },
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
     "autoprefixer": "^6.3.3",
+    "copyfiles": "^0.2.1",
     "csscomb": "^3.1.8",
     "csso": "^1.5.4",
-    "node-sass": "^3.4.2"
+    "node-sass": "^3.4.2",
+    "postcss-cli-simple": "^1.0.1"
   }
 }
