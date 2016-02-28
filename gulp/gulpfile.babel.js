@@ -11,7 +11,8 @@ gulp.task('build', (callback) => {
     ['eslint'],
     ['pre-test'],
     ['test'],
-    ['img:sprite', 'build:css', 'build:img', 'build:js']
+    ['img:sprite'],
+    ['build:css', 'build:img', 'build:js']
   );
 });
 

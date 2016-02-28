@@ -2,8 +2,25 @@
   "name": "tasks",
   "version": "1.0.0",
   "description": "tasks",
+  "config": {
+    "dest" : "dest",
+    "tmp" : "tmp",
+    "versions": {
+      "img": {
+        "sprite": "1.0.0"
+      },
+      "css": {
+        "all": "1.0.0"
+      },
+      "js": {
+        "bundle": "1.0.0"
+      }
+    }
+  },
   "scripts": {
-    "start": "node server/index.js"
+    "build": "gulp build",
+    "watch": "gulp watch",
+    "test": "gulp test"
   },
   "license": "MIT",
   "dependencies": {},

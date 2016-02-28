@@ -1,12 +1,15 @@
 'use strict'
-
+import * as pkg from '../../package.json'
 import { webpackConfig } from '../webpack.config'
 
 import gulp from 'gulp'
 import webpack from 'gulp-webpack'
-import sourcemaps from 'gulp-sourcemaps'
 import uglify from 'gulp-uglify'
+import rename from 'gulp-rename'
 import sequence from 'run-sequence'
+
+const destPath = pkg.config.dest + '/js';
+const tmpPath = pkg.config.tmp + '/js';
 
 
 gulp.task('js:webpack', () => {
@@ -14,15 +17,16 @@ gulp.task('js:webpack', () => {
     './src/js/**/*.js'
   ])
     .pipe(webpack(webpackConfig))
-    .pipe(gulp.dest('tmp/js'))
+    .pipe(gulp.dest(tmpPath))
 });
 
 gulp.task('js:min', () => {
-  return gulp.src('tmp/js/**/*.js')
-    .pipe(sourcemaps.init())
+  return gulp.src(tmpPath + '/**/*.js')
     .pipe(uglify())
-    .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('dest/js'))
+    .pipe(rename((path) => {
+      path.basename += '-' + pkg.config.versions.js.bundle
+    }))
+    .pipe(gulp.dest(destPath))
 });
 
 gulp.task('js', (callback) => {
