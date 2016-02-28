@@ -1,0 +1,27 @@
+{
+  "root": true
+ ,"parser": "babel-eslint"
+ ,"env": {
+     "browser": true
+    ,"node": true
+    ,"es6": true
+    ,"mocha": true
+  }
+ ,"extends": "eslint:recommended"
+ ,"globals": {
+    "ON_DEV": true
+  }
+ ,"rules": {
+    "camelcase": 0
+   ,"eqeqeq": [2, "smart"]
+   ,"indent": [2, 2, {"SwitchCase": 1, "VariableDeclarator": 2}]
+   ,"quotes": [1, "single"]
+   ,"no-alert": 2
+   ,"no-caller": 2
+   ,"no-console": 1
+   ,"no-eval": 2
+   ,"no-multi-spaces": 2
+   ,"no-unused-vars": [1, {"vars": "all", "args": "after-used"}]
+   ,"no-undef": [1, { "typeof": false }]
+  }
+}

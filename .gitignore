@@ -6,3 +6,6 @@
 *npm-debug.log
 *dev/
 *public/
+*dest/
+*tmp
+*coverage
