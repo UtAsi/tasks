@@ -123,4 +123,19 @@ describe('util test', () => {
     assert.equal(result, 0)
   });
 
+
+  it('compare 4 base 1.10, target 1.10.1: return result -1', () => {
+    const base = '1.10';
+    const target = '1.10.1';
+    const result = compare(base, target);
+    assert.equal(result, -1)
+  });
+
+  it('compare 4 base 1.10.1, target 1.10: return result 1', () => {
+    const base = '1.10.1';
+    const target = '1.10';
+    const result = compare(base, target);
+    assert.equal(result, 1)
+  });
+
 })
