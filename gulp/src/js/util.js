@@ -39,7 +39,7 @@ export const compare = (base, target) => {
     return 1;
   }
   if (_a.length < _b.length) {
-    return 1;
+    return -1;
   }
   return 0;
 }
