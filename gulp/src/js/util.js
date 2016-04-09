@@ -43,3 +43,5 @@ export const compare = (base, target) => {
   }
   return 0;
 }
+
+// hoge
